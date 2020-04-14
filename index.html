@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Addition of 2 numbers</title>
+	<style>
+		form center{
+			font-size: 30px;
+			color: #03a1fc;
+			margin-bottom: 50px;
+			margin-top: 50px;
+		}
+		.txt{
+			color: #bf830b;
+		}
+	</style>
+	<script>
+		var entry = document.getElementById("entry");
+		entry.addEventListener("click", f);
+		var row = 1;
+		function f() {
+			var country = document.getElementById("country").value;
+			var male = document.getElementById("male");
+			var female = document.getElementById("female");
+			var lang = document.getElementById("lang").checked;
+			var lang1 = document.getElementById("lang1").checked;
+
+
+			if (f1.id.value == "") {
+				alert("User id Required");
+				f1.id.focus();
+			}
+			else if (f1.id.value.length<5 || f1.id.value.length>12) {
+				alert("User id must be of length 5 to 12");
+				f1.id.focus();
+			}
+			else if (f1.pwd.value == "") {
+				alert("Password Required");
+				f1.pwd.focus();
+			}
+			else if (f1.pwd.value.length<7 || f1.pwd.value.length>12) {
+				alert("Password must be of length 7 to 12");
+				f1.pwd.focus();
+			}
+			else if (f1.name.value == "") {
+				alert("Name Required");
+				f1.name.focus();
+			}
+			else if (country == "Select") {
+				alert("Country Required");
+				f1.country.focus();
+			}
+			else if (f1.zip.value == "") {
+				alert("PIN Required");
+				f1.zip.focus();
+			}
+			else if(isNaN(f1.zip.value)){
+				alert("Zip Code must be number");
+				f1.zip.select();
+			}
+			else if (f1.email.value == "") {
+				alert("Email Required");
+				f1.email.focus();
+			}
+			else if(f1.email.value.indexOf("@")<1 || f1.email.value.indexOf(".")<1){
+	        	alert("Invalid email address");
+	        	f1.email.focus();
+	      	}
+			/*else if (male.checked == "" && female.checked == "") {
+				alert("Sex Required");
+			}*/
+			else if (female.checked == true) {
+				alert(female.value);
+			}
+			else if (lang == "" && lang1 == "") {
+				alert("Language Required");
+			}				
+			else{
+				
+				alert("registration Successful");
+				var display = document.getElementById("display");
+				var newRow = display.insertRow(row);
+				var cell1 = newRow.insertCell(0);
+				var cell2 = newRow.insertCell(1);
+				var cell3 = newRow.insertCell(2);
+				var cell4 = newRow.insertCell(3);
+				var cell5 = newRow.insertCell(4);
+				var cell6 = newRow.insertCell(5);
+				var cell7 = newRow.insertCell(6);
+				var cell8 = newRow.insertCell(7);
+				var cell9 = newRow.insertCell(8);
+				var cell10 = newRow.insertCell(9);
+				cell1.innerHTML = f1.id.value;
+				cell2.innerHTML = f1.pwd.value
+				cell3.innerHTML = f1.name.value;
+				cell4.innerHTML = f1.address.value;
+				cell5.innerHTML = country;
+				cell6.innerHTML = f1.zip.value;
+				cell7.innerHTML = f1.email.value;
+				if (male == true) {
+					cell8.innerHTML = male.value;
+				}
+				else{
+					cell8.innerHTML = female.value;
+				}
+				//cell9.innerHTML = f1.language.value;
+				cell10.innerHTML = f1.about.value;
+				
+			}
+			
+			//alert("Addition of "+a+" and "+b+" is "+c);
+		}
+	</script>
+</head>
+<body>
+<center>
+	<form action="" name="f1">
+		<table>
+			<tr>
+				<th colspan="2"><center>Registration Form</center></th>
+			</tr>
+			<tr>
+				<td>User Id : </td>
+				<td><input type="text" name="id" class="txt" placeholder="Enter userid"></td>
+				<td><span id="a"></span></td>
+			</tr>
+			<tr>
+				<td>Password : </td>
+				<td><input type="password" name="pwd" placeholder="Enter password"></td>
+			</tr>
+			<tr>
+				<td>Name :</td>
+				<td><input type="text" name="name" class="txt" placeholder="Enter Name"/></td>
+			</tr>
+			<tr>
+				<td>Address :</td>
+				<td><input type="varchar" name="address" class="txt" placeholder="optional"/></td>
+			</tr>
+			<tr>
+				<td>Country :</td>
+				<td>
+					<select class="txt" id="country">
+				        <option value="Select">Select</option>
+				        <option value="India">INDIA</option>
+				        <option value="Pakistan">SRILANKA</option>
+				        <option value="France">FRANCE</option>
+				        <option value="Brazil">SPAIN</option>
+				 	</select>
+				</td>
+			</tr>
+			<tr>
+				<td>ZIP code :</td>
+				<td><input type="text" name="zip" class="txt" maxlength="6" placeholder="Enter Valid Pin Code"/></td>
+			</tr>
+			<tr>
+				<td>Email :</td>
+				<td><input type="email" class="txt" name="email" placeholder="@gmail.com"/></td>
+			</tr>
+			<tr>
+				<td>Sex :</td>
+				<td><input id="female" type="radio" class="txt" name="gender" />Female 
+				<input id="male" type="radio" class="txt" name="gender" />Male</td>
+			</tr>
+			<tr>
+				<td>Language :</td>
+				<td><input type="checkbox" id="lang" class="txt" name="language" checked/>English
+				<input type="checkbox" id="lang1" class="txt" name="language"/>Non English
+				</td>
+			</tr>
+			<tr>
+				<td>About :</td>
+				<td><textarea class="txt" id="about" cols="22" rows="5" name="about" placeholder="optional"></textarea>
+			</tr>
+			<tr>
+				<td colspan="2"><center><input type="button" id="entry" value="Submit" onclick="f()"></center></td>
+			</tr>
+		</table>
+
+		<table id="display">
+			<caption>Registration Records</caption>
+			<thead>
+				<tr>
+					<th>User ID</th>
+					<th>Password</th>
+					<th>Name</th>
+					<th>Address</th>
+					<th>Country</th>
+					<th>ZIP Code</th>
+					<th>Email ID</th>
+					<th>Gender</th>
+					<th>Language</th>
+					<th>About</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<td id="usrid"></td>
+					<td id="passwd"></td>
+					<td id="uname"></td>
+					<td id="add"></td>
+					<td id="contry"></td>
+					<td id="pin"></td>
+					<td id="emailid"></td>
+					<td id="gen"></td>
+					<td id="lang"></td>
+					<td id="abt"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</center>
+</body>
+</html>
